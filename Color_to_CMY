@@ -1,2 +1,45 @@
-print("Hello World!!")
-print("hey!")
+#Hue, Saturation, Value
+M = [330,100,60]
+C = [180,100,50]
+Y = [60,100,75]
+
+
+#round to _ digits after decimal point
+r = 2
+
+#---------------------------------------------User prompt
+print("Enter HUE, SATURATION, VALUE")
+
+Ht = float(input("H:_"))
+St = float(input("S:_"))
+Vt = float(input("V:_"))
+
+T = [Ht, St, Vt]
+
+
+#----------------------------shortest route
+Mda = abs(T[0] - M[0])
+Cda = abs(T[0] - C[0])
+Yda = abs(T[0] - Y[0])
+
+Mdb = 360 - Mda
+Cdb = 360 - Cda
+Ydb = 360 - Yda
+
+Md = min(Mda, Mdb)
+Cd = min(Cda, Cdb)
+Yd = min(Yda, Ydb)
+
+
+#-----------------------------------------percentages
+Totald = Md + Cd + Yd
+
+Mfrac = round(Md / Totald, r)
+Cfrac = round(Cd / Totald, r)
+Yfrac = round(Yd / Totald, r)
+
+print("")
+
+print(f"M:{Mfrac}")
+print(f"C:{Cfrac}")
+print(f"Y:{Yfrac}")
